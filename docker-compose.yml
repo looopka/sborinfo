@@ -1,0 +1,14 @@
+services:
+  bot:
+    build: .
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      # БД и временные файлы сохраняются между перезапусками
+      - bot-data:/app/data
+      - bot-temp:/app/temp
+
+volumes:
+  bot-data:
+  bot-temp:
