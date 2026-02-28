@@ -8,6 +8,11 @@ services:
       # БД и временные файлы сохраняются между перезапусками
       - bot-data:/app/data
       - bot-temp:/app/temp
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"   # максимум 10 МБ на файл
+        max-file: "3"     # хранить не более 3 файлов (итого ~30 МБ)
 
 volumes:
   bot-data:
