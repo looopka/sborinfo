@@ -320,9 +320,10 @@ async def cb_create_link(callback: CallbackQuery, db_user: dict, bot: Bot):
 
     await callback.message.answer(
         f"✅ Создана пригласительная ссылка для события <b>{event['name']}</b>:\n\n"
-        f"<code>{link_url}</code>\n\n"
-        "Отправьте эту ссылку участникам.",
+        f"<a href='{link_url}'>{link_url}</a>\n\n"
+        "Нажмите на ссылку чтобы перейти или скопируйте и отправьте участникам.",
         parse_mode="HTML",
+        disable_web_page_preview=True,
     )
     await callback.answer()
 
