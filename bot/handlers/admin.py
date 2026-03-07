@@ -346,8 +346,9 @@ async def cb_link_detail(callback: CallbackQuery, db_user: dict, bot: Bot):
     await callback.message.edit_text(
         f"🔗 <b>Ссылка для события «{link['event_name']}»</b>\n"
         f"Статус: {status}\n\n"
-        f"<code>{link_url}</code>",
+        f"<a href='{link_url}'>{link_url}</a>\n\n",
         parse_mode="HTML",
+        disable_web_page_preview=True,
         reply_markup=link_actions_keyboard(link_id, bool(link["is_active"])),
     )
     await callback.answer()
